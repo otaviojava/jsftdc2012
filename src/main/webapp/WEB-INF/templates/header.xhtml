@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+    <h:form>
+
+        <div id="topo">
+            <h:graphicImage library="images" name="top.jpg"/>
+        </div>
+
+
+        <div id="menu">
+            <p:menubar >  
+                <p:submenu label="Básico" icon="ui-icon-document">  
+                    <p:menuitem value="Scopo" url="scopo.jsf"  />  
+                    <p:submenu label="Integração" icon="ui-icon-contact">  
+                        <p:menuitem value="CSS" url="css.jsf" />  
+                        <p:menuitem value="Java Script" url="javascript.jsf" />  
+                        <p:menuitem value="Jquery" url="jquery.jsf" />  
+                        <p:menuitem value="HTML 5" url="html5.jsf" />  
+                    </p:submenu>  
+                    <p:separator />  
+                    <p:menuitem value="Converter" url="converter.jsf" />  
+                    <p:menuitem value="Validador" url="validador.jsf" />  
+                    <p:separator />  
+                 
+                </p:submenu>  
+                <p:submenu label="Extra" icon="ui-icon-document">  
+                    <p:menuitem value="Bean Validator" url="beanvalidador.jsf"  />  
+                    <p:menuitem value="CDI" url="cdi.jsf"  />  
+                </p:submenu>
+            </p:menubar>  
+        </div>
+
+
+
+    </h:form>
+</ui:composition>

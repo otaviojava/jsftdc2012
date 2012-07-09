@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/main.xhtml"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+        xmlns:tdc="http://java.sun.com/jsf/composite/tdc"
+       
+            >
+    
+    
+    <ui:define name="content">
+      <h:form>
+        <h:panelGrid columns="6">
+            <p:colorPicker value="#{canvasBean.cor}"/>
+            <p:inputMask value="#{canvasBean.tamanho}" mask="9"/>
+            <p:commandButton value="Mudar cor e tamanho"  update="canvasPanel"/>
+        </h:panelGrid>
+        
+        <p:panel id="canvasPanel" header="Desenho">
+      <tdc:canvas id="paintingCanvas" width="450px" height="450px" 
+                 penColor="##{canvasBean.cor}" lineWidth="#{canvasBean.tamanho}"/>
+        </p:panel>
+     
+</h:form>        
+    </ui:define>
+</ui:composition>

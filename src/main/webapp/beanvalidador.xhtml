@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/main.xhtml"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	
+        >
+    
+    
+    <ui:define name="content">
+        <h:form id="form">
+     <p:messages  id="alerts" />
+        <p:panel header="Nadador">
+            
+            <h:panelGrid columns="2">
+                <h:outputText value="Nome:   "/>
+                <p:inputText value="#{nadadorBean.time.nome}" required="true" requiredMessage="Nome Obrigatório"/>
+                <h:outputText value="Idade   "/>
+                <p:inputText id="idade" value="#{nadadorBean.time.idade}" converterMessage="A idade deve ser numero"/>
+                <h:outputText value="Email:   "/>
+                <p:inputText value="#{nadadorBean.time.email}"  />
+
+                    
+                
+                
+            </h:panelGrid>
+           
+            <p:commandButton value="Confirmar" update="alerts,nadadorList" action="#{nadadorBean.submeter()}"/>
+        </p:panel>
+        
+     <p:dataList id="nadadorList" value="#{nadadorBean.nadadores}" var="nadador" itemType="circle">  
+    #{nadador}
+</p:dataList> 
+     
+     
+       </h:form> 
+    </ui:define>
+</ui:composition>

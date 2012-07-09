@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/main.xhtml"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	
+        >
+    
+    
+    <ui:define name="content">
+        <h:form id="form">
+     <p:messages  id="alerts" />
+     
+     <p:outputPanel rendered="#{usuarioBean.votado ne true}">
+        <p:panel header="O que você achou da apresentação ?">
+            
+            <h:panelGrid columns="2">
+                <h:outputText value="Nome:   "/>
+                <p:inputText value="#{usuarioBean.enquete.nome}" required="true" requiredMessage="Nome Obrigatório"/>
+                <h:outputText value="Contato:   "/>
+                <p:inputText value="#{usuarioBean.enquete.contato}" type="digit"/>
+                 <h:outputText value="Status:   "/>
+                <p:selectOneMenu value="#{usuarioBean.enquete.status}"  >
+                    <f:selectItems value="#{listaBean.status}"/>
+                </p:selectOneMenu>  
+                
+                
+            </h:panelGrid>
+           
+            <p:commandButton value="Confirmar" update="alerts,enquetePie" action="#{enqueteBean.adicionar(usuarioBean.enquete)}" oncomplete="votado();"/>
+        </p:panel>
+        </p:outputPanel>
+    <p:outputPanel rendered="#{usuarioBean.votado}">
+        <p:pieChart id="enquetePie" value="#{enqueteBean.pieModel}" legendPosition="w" showDataLabels="true"
+                title="Resultado" style="width:400px;height:300px" /> 
+     
+    </p:outputPanel>
+     <p:remoteCommand name="votado" update="form" action="#{usuarioBean.votar()}"/>  
+       </h:form> 
+    </ui:define>
+</ui:composition>

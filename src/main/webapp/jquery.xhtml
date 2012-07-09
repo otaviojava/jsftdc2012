@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/main.xhtml"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+        xmlns:tdc="http://java.sun.com/jsf/composite/tdc"
+        
+        >
+    
+    
+    <ui:define name="content">
+      <h:form>
+       <p:accordionPanel>  
+            <p:tab title="Java"> 
+      <tdc:panelAccordion imagem="java.jpg" texto="Java é uma linguagem de programação orientada a objeto desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems."/>
+            </p:tab>
+        <p:tab title="PHP">
+            <tdc:panelAccordion imagem="php.png" texto="PHP (um acrônimo recursivo para PHP: Hypertext Preprocessor, originalmente Personal Home Page) é uma linguagem interpretada livre e utilizada para gerar conteúdo dinâmico na World Wide Web."/> 
+    </p:tab>  
+    <p:tab title="Python">  
+        
+                        <tdc:panelAccordion imagem="python.png" texto="Python é uma linguagem de programação de alto nível, interpretada, imperativa, orientada a objetos, de tipagem dinâmica e forte. Foi lançada por Guido van Rossum em 1991."/> 
+
+            
+        
+    </p:tab>  
+    <p:tab title="Ruby">  
+         <tdc:panelAccordion imagem="ruby.png" texto="Ruby é uma linguagem de programação interpretada multiparadigma, de tipagem dinâmica e forte, com gerenciamento de memória automático, originalmente planejada e desenvolvida no Japão em 1995, por Yukihiro Matz Matsumoto, para ser usada como linguagem de script."/> 
+        
+    </p:tab>  
+       </p:accordionPanel>
+     
+</h:form> 
+					
+          
+    </ui:define>
+</ui:composition>

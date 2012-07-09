@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/main.xhtml"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+        xmlns:tdc="http://java.sun.com/jsf/composite/tdc">
+    
+    
+    <ui:define name="content">
+        <form id="form">
+           
+            <p:commandButton value="Mensagem Alert"  onclick="mensagem();"/>
+            <p:commandButton id="basic" value="Mensagem TDC SP 2012" onclick="dlg1.show();" type="button" />  
+            <p:dialog id="basicDialog" header="Seja Bem vindo ao TDC SP 2012" widgetVar="dlg1">  
+                <h:outputText value="Seja Bem vindo ao TDC 2012!" />  
+            </p:dialog>  
+  
+        
+            
+            
+        </form>
+    </ui:define>
+</ui:composition>

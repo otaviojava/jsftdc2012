@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+  <composite:interface>
+    <composite:attribute name="id"/>  
+    <composite:attribute name="width"/>
+    <composite:attribute name="height"/>   
+    <composite:attribute name="library"  default="js"/>
+    <composite:attribute name="script"   default="canvasDefault.js"/>
+    <composite:attribute name="style"    default="border: thin solid blue"/>
+    <composite:attribute name="penColor" default="#7777FF"/>
+    <composite:attribute name="lineWidth" default="2"/>
+  </composite:interface>
+  
+  <composite:implementation>
+		<canvas id="#{cc.id}"
+		     width="#{cc.attrs.width}" 
+		    height="#{cc.attrs.height}"
+		     style="#{cc.attrs.style}">
+                                
+      <composite:insertChildren/>
+		     
+	  </canvas>
+    
+    <h:outputScript library="#{cc.attrs.library}" 
+                       name="#{cc.attrs.script}"/>
+                       
+    <script>
+      #{cc.attrs.script}.init('#{cc.id}', 
+                              '#{cc.attrs.penColor}', 
+                              '#{cc.attrs.lineWidth}')
+    </script>                                                 
+  </composite:implementation>
+</html>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/main.xhtml"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	
+        >
+    
+    
+    <ui:define name="content">
+        <h:form id="form">
+     <p:messages  id="alerts" />
+        <p:panel header="Cadastro Pessoa">
+            
+            <h:panelGrid columns="2">
+                <h:outputText value="Nome:   "/>
+                <p:inputText value="#{pessoaBean.pessoa.nome}" required="true" requiredMessage="Nome Obrigatório"/>
+                <h:outputText value="CPF:   "/>
+                <p:inputMask value="#{pessoaBean.pessoa.cpf}"  mask="999.999.999-99" required="true" requiredMessage=" CPF não informado" >
+                    <f:validator validatorId="CPFValidador" />
+                </p:inputMask>
+                <h:outputText value="Email:   "/>
+                <p:inputText value="#{pessoaBean.pessoa.email}"  >
+                    <f:validator validatorId="CorreioEletronicoValidador" />
+                </p:inputText>
+                
+            </h:panelGrid>
+            <p:commandButton value="Confirmar" update="alerts,lista" action="#{pessoaBean.adicionar()}"/>
+        </p:panel>
+        
+     
+     <p:dataTable id="lista" value="#{pessoaBean.pessoas}" var="pessoa">
+         <p:column id="modelHeader">  
+            <f:facet name="header">  
+                    Nome  
+            </f:facet>  
+             <h:outputText value="#{pessoa.nome}" />  
+        </p:column>
+         <p:column>
+            <f:facet name="header">  
+                    CPF  
+            </f:facet>  
+         <h:outputText value="#{pessoa.cpf}" />  
+        </p:column>  
+        <p:column>
+            <f:facet name="header">  
+                    Email 
+            </f:facet>  
+        <h:outputText value="#{pessoa.email}" />  
+        </p:column>  
+        
+     </p:dataTable>
+     
+       </h:form> 
+    </ui:define>
+</ui:composition>
